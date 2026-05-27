@@ -1,0 +1,71 @@
+### Root Test
+GET http://localhost:5001/
+
+### Check MongoDB Connection
+GET http://localhost:5001/check
+
+
+### =========================
+### CREATE Movie (POST)
+### =========================
+POST http://localhost:5001/api/movies
+content-type: application/json
+
+{
+    "id": "1",
+    "title": "The Imitation Game",
+    "year": 2014,
+    "summary": "Das wahre Rätsel war der Mann, der den Code knackte",
+    "actors": [
+        "Benedict Cumberbatch",
+        "Keira Knightley"
+    ]
+}
+
+
+### =========================
+### GET all Movies
+### =========================
+GET http://localhost:5001/api/movies
+
+
+### =========================
+### GET Movie by id (OK)
+### =========================
+GET http://localhost:5001/api/movies/1
+
+
+### =========================
+### GET Movie by id (404)
+### =========================
+GET http://localhost:5001/api/movies/999
+
+
+### =========================
+### UPDATE Movie
+### =========================
+PUT http://localhost:5001/api/movies/1
+content-type: application/json
+
+{
+    "id": "1",
+    "title": "Updated Movie Title",
+    "year": 2025,
+    "summary": "Updated summary",
+    "actors": [
+        "Actor 1",
+        "Actor 2"
+    ]
+}
+
+
+### =========================
+### DELETE Movie (OK)
+### =========================
+DELETE http://localhost:5001/api/movies/1
+
+
+### =========================
+### DELETE Movie (404)
+### =========================
+DELETE http://localhost:5001/api/movies/999
